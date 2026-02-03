@@ -1,110 +1,26 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Odla för framtiden</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f4;
-}
-
-header {
-  background: #2e7d32;
-  color: white;
-  padding: 16px;
-  text-align: center;
-  font-size: 22px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  padding: 16px;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 12px;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.card:hover {
-  background: #e8f5e9;
-}
-
-#modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-#modalBox {
-  background: white;
-  padding: 20px;
-  width: 90%;
-  max-width: 420px;
-  border-radius: 16px;
-}
-
-#modalBox h2 {
-  margin-top: 0;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  background: #2e7d32;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  margin-top: 16px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Odla för framtiden</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>Odla för framtiden</header>
+<h1>🌱 Odla för framtiden – Växtbibliotek</h1>
 
-<div class="grid">
-  <div class="card" onclick="openModal('Tomat','Så inomhus i mars–april. Vattna regelbundet. Mycket sol.')">🍅 Tomat</div>
-  <div class="card" onclick="openModal('Potatis','Sätt i april–maj. Kupas. Skördas efter ca 10–12 veckor.')">🥔 Potatis</div>
-  <div class="card" onclick="openModal('Jordgubbe','Planteras på våren. Vattna ofta. Perenn.')">🍓 Jordgubbe</div>
-  <div class="card" onclick="openModal('Äpple','Planteras höst/vår. Beskärs tidigt.')">🍎 Äpple</div>
-</div>
+<button id="openLibrary">📚 Öppna växtbibliotek</button>
 
-<div id="modal">
-  <div id="modalBox">
+<div id="library" class="hidden"></div>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span id="closeModal">✖</span>
     <h2 id="modalTitle"></h2>
     <p id="modalText"></p>
-    <button onclick="closeModal()">Stäng</button>
   </div>
 </div>
 
-<script>
-function openModal(title, text) {
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalText").innerText = text;
-  document.getElementById("modal").style.display = "flex";
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
