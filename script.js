@@ -25,3 +25,52 @@ const plants = [
   {name:"Vinbär", category:"Bär", care:"Sol/halvskugga.", cost:30, yield:"1–2 kg/buske", revenue:60},
   {name:"Krasse", category:"Ört", care:"Sol, snabbväxande.", cost:5, yield:"0.1–0.2 kg", revenue:12},
   {name:"Rabarber", category
+// Skapa modal
+const modal = document.createElement("div");
+modal.id = "plantModal";
+modal.style = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;";
+modal.innerHTML = `
+  <div style="background:white; padding:20px; border-radius:10px; max-width:400px; width:90%;">
+    <span id="closeModal" style="float:right; font-weight:bold; cursor:pointer;">X</span>
+    <div id="modalContent"></div>
+  </div>
+`;
+document.body.appendChild(modal);
+
+// Stäng modal
+document.getElementById("closeModal").onclick = () => {
+  modal.style.display = "none";
+};
+
+// Rendera växter i listan
+const plantList = document.getElementById("plantList");
+function renderPlants(filter="") {
+  plantList.innerHTML = "";
+  plants.forEach(p => {
+    if(p.name.toLowerCase().includes(filter.toLowerCase())){
+      const li = document.createElement("li");
+      li.innerHTML = `<h3>${p.name}</h3><p><strong>Kategori:</strong> ${p.category}</p>`;
+      li.onclick = () => {
+        document.getElementById("modalContent").innerHTML = `
+          <h2>${p.name}</h2>
+          <p><strong>Kategori:</strong> ${p.category}</p>
+          <p><strong>Skötsel:</strong> ${p.care}</p>
+          <p><strong>Kostnad:</strong> ${p.cost} kr</p>
+          <p><strong>Skörd:</strong> ${p.yield}</p>
+          <p><strong>Intäkt/år:</strong> ${p.revenue} kr</p>
+        `;
+        modal.style.display = "flex";
+      };
+      plantList.appendChild(li);
+    }
+  });
+}
+
+// Sökfält
+const searchInput = document.getElementById("search");
+searchInput.addEventListener("input", () => {
+  renderPlants(searchInput.value);
+});
+
+// Initial render
+renderPlants();
