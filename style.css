@@ -1,45 +1,100 @@
-/* Grundläggande layout */
+/* Grundlayout */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f4;
-    color: #1e2d1e;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 header {
-    background: #2f6b3f;
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
 }
 
 main {
-    padding: 20px;
+  padding: 20px;
 }
 
-h1, h2 {
-    margin: 0 0 10px 0;
+/* Växtbibliotek */
+#plants h2 {
+  margin-bottom: 10px;
 }
 
-#plants {
-    margin-top: 20px;
+/* Sökfält */
+#search {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
+/* Växtlista */
 #plantList {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 #plantList li {
-    background: white;
-    border-radius: 10px;
-    padding: 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  width: calc(33.333% - 10px);
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-#plantList li h3 {
-    margin-top: 0;
+#plantList li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#plantList h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+#plantList p {
+  margin: 2px 0;
+}
+
+/* Modal */
+#plantModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+}
+
+#plantModal div {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+}
+
+#closeModal {
+  float: right;
+  font-weight: bold;
+  cursor: pointer;
 }
