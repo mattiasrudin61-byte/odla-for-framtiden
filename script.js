@@ -24,15 +24,14 @@ const plants = [
   {name:"Hallon", category:"Bär", care:"Sol, stöd.", cost:35, yield:"1–2 kg/buske", revenue:70},
   {name:"Vinbär", category:"Bär", care:"Sol/halvskugga.", cost:30, yield:"1–2 kg/buske", revenue:60},
   {name:"Krasse", category:"Ört", care:"Sol, snabbväxande.", cost:5, yield:"0.1–0.2 kg", revenue:12},
-  {
+ {
   name: "Rabarber",
   category: "Frukt",
   care: "Halvskugga, fuktig jord. Ta bort gamla stjälkar och luckra jorden varje vår.",
   cost: 20,              // Kostnad per planta i kr
   yield: "1–2 kg/plant", // Skörd per år
   revenue: 35            // Intäkt per år i kr
-}// Skapa modal
-const modal = document.createElement("div");
+}const modal = document.creteElement("div");
 modal.id = "plantModal";
 modal.style = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;";
 modal.innerHTML = `
