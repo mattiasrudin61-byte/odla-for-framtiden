@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <title>Odla för framtiden</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Stil -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Framtidsodling</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <h1>🌱 Odla för framtiden</h1>
-    <p>En enkel, självgående odlingsapp</p>
+    <h1>🌱 Framtidsodling</h1>
+    <p>En självgående odlingsapp med växtbibliotek och ekonomi</p>
   </header>
 
   <main>
     <section id="plants">
       <h2>Växtbibliotek</h2>
+
+      <!-- Sökfält -->
+      <input type="text" id="search" placeholder="Sök växt..." />
+
       <ul id="plantList"></ul>
     </section>
   </main>
 
-  <!-- Logik -->
   <script src="script.js"></script>
 </body>
 </html>
